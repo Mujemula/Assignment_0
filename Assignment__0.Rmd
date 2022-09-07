@@ -64,7 +64,6 @@ If you created an RStudio project, then your working directory (the directory wi
 ```{r}
 pacman::p_load(tidyverse,
                janitor)
-q()
 ```
 
 Load the three data sets, after downloading them from dropbox and saving them in your working directory:
@@ -73,7 +72,13 @@ Load the three data sets, after downloading them from dropbox and saving them in
 * Word data: https://www.dropbox.com/s/8ng1civpl2aux58/token_train.csv?dl=0
 
 ```{r}
+data_1<- read.csv("demo_train.csv")
+data_2<- read.csv("LU_train.csv")
+data_3<- read.csv("token_train.csv")
 
+view(data_1)
+view(data_2)
+view(data_3)
 ```
 
 Explore the 3 data sets (e.g. visualize them, summarize them, etc.). You will see that the data is messy, since the psychologist collected the demographic data, the linguist analyzed the length of utterance in May 2014 and the fumbling jack-of-all-trades analyzed the words several months later. 
