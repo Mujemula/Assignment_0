@@ -98,7 +98,21 @@ Tip: look through the chapter on data transformation in R for data science (http
 
 
 ```{r}
+data_1 <- data_1 %>% 
+  rename(SUBJ=Child.ID)
 
+data_1 <- data_1 %>% 
+  rename(VISIT=Visit)
+
+
+data_3 <- data_3 %>% 
+  rename(MOT_MLU=types_MOT) %>% 
+  rename(CHI_MLU=types_CHI) %>% 
+  
+
+view(data_1)
+view(data_2)
+view(data_3)
 ```
 
 2b. Find a way to homogenize the way "visit" is reported (visit1 vs. 1).
