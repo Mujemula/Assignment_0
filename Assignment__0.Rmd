@@ -107,8 +107,9 @@ data_1 <- data_1 %>%
 
 data_3 <- data_3 %>% 
   rename(MOT_MLU=types_MOT) %>% 
-  rename(CHI_MLU=types_CHI) %>% 
+  rename(CHI_MLU=types_CHI) 
   
+
 
 view(data_1)
 view(data_2)
@@ -121,7 +122,8 @@ Tip: The stringr package is what you need. str_extract () will allow you to extr
 
 
 ```{r}
-
+data_2_try <- data_2 %>% 
+  mutate()
 
 ```
 
