@@ -116,6 +116,10 @@ view(data_2)
 view(data_3)
 ```
 
+```{r}
+compare_df_cols(data_1,data_2,data_3)
+```
+
 2b. Find a way to homogenize the way "visit" is reported (visit1 vs. 1).
 
 Tip: The stringr package is what you need. str_extract () will allow you to extract only the digit (number) from a string, by using the regular expression \\d.
@@ -123,9 +127,18 @@ Tip: The stringr package is what you need. str_extract () will allow you to extr
 
 ```{r}
 data_2_try <- data_2 %>% 
-  mutate()
+  mutate(VISIT= str_extract(VISIT, "\\d"))
+view(data_2_try)
 
+data_2 <- data_2 %>% 
+  mutate(VISIT= str_extract(VISIT, "\\d"))
+view(data_2)
+
+data_3 <- data_3 %>% 
+  mutate(VISIT= str_extract(VISIT, "\\d"))
+view(data_3)
 ```
+
 
 2c. We also need to make a small adjustment to the content of the Child.ID column in the demographic data. Within this column, names that are not abbreviations do not end with "." (i.e. Adam), which is the case in the other two data sets (i.e. Adam.). If The content of the two variables isn't identical the rows will not be merged.
 A neat way to solve the problem is simply to remove all "." in all data sets.
