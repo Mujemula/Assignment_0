@@ -179,8 +179,8 @@ The variables we need are:
 * Socialization
 * MOT_MLU, 
 * CHI_MLU, 
-* types_MOT, 
-* types_CHI, 
+* types_MOT,                                           !!!!!!
+* types_CHI,                                           !!!!!!
 * tokens_MOT, 
 * tokens_CHI.
 
@@ -196,6 +196,16 @@ Most variables should make sense, here the less intuitive ones.
 Feel free to rename the variables into something you can remember (i.e. nonVerbalIQ, verbalIQ)
 
 ```{r}
+data_1 <- data_1 %>% 
+  select(SUBJ,VISIT,Diagnosis,Ethnicity,Gender,Age,ADOS,MullenRaw,ExpressiveLangRaw,Socialization)
+view(data_1)
+
+data_2 <- data_2 %>% 
+  select(SUBJ,VISIT,MOT_MLU,CHI_MLU)
+view(data_2)
+
+data_3 <- data_3 %>% 
+  select(SUBJ,VISIT,MOT_MLU,CHI_MLU,tokens_CHI,tokens_MOT)
 
 ```
 
