@@ -207,6 +207,13 @@ view(data_2)
 data_3 <- data_3 %>% 
   select(SUBJ,VISIT,MOT_MLU,CHI_MLU,tokens_CHI,tokens_MOT)
 
+data_2 <- data_2 %>% 
+  mutate(VISIT=as.integer(VISIT))
+
+data_3 <- data_3 %>% 
+  mutate(VISIT=as.integer(VISIT))
+
+compare_df_cols(data_1,data_2,data_3)
 ```
 
 2e. Finally we are ready to merge all the data sets into just one. 
@@ -216,8 +223,19 @@ Some things to pay attention to:
 * make sure to understand whether (and if so why) there are NAs in the data set (e.g. some measures were not taken at all visits, some recordings were lost or permission to use was withdrawn)
 
 ```{r}
+clean_df_try <- merge(data_1,data_2, by="SUBJ","VISIT", all = TRUE)
+
+clean_df_try <- merge(clean_df_try,data_3,by="SUBJ", all = TRUE)
+view(clean_df_try)
 
 
+df_list_try <- list(data_1,data_2,data_3)
+clean_try_2 <- df_list_try %>% 
+  reduce(full_join, by="SUBJ","VISIT")
+view(clean_try_2)
+
+#why is there 2 VISIT columns? Is it because there is an extra SUBJ AA in data_3? 
+#Did you change MOT_MLU and CHI_MLU to integers?
 ```
 
 
