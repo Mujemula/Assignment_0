@@ -148,7 +148,19 @@ Tip: You can either have one line of code for each child name that is to be chan
 
 
 ```{r}
+help("str_replace_all")
 
+data_2 <- data_2 %>% 
+  mutate(SUBJ=str_replace_all(SUBJ, "([.])", ""))
+view(data_2)
+
+data_1 <- data_1 %>% 
+  mutate(SUBJ=str_replace_all(SUBJ, "([.])", ""))
+view(data_1)
+
+data_3 <- data_3 %>% 
+  mutate(SUBJ=str_replace_all(SUBJ, "([.])", ""))
+view(data_3)
 ```
 
 2d. Now that the nitty gritty details of the different data sets are fixed, we want to make a subset of each data set only containig the variables that we wish to use in the final data set.
